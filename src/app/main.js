@@ -67,7 +67,7 @@ class App extends React.Component {
         const grid = (
             <Grid data={this.state.gridData}>
 
-                <GridToolbar>
+                {/* <GridToolbar>
                     <button
                         title="Descargar a PDF"
                         className="k-button k-primary"
@@ -76,12 +76,13 @@ class App extends React.Component {
                     >
                         Descargar a PDF
                     </button>
-                </GridToolbar>
+                </GridToolbar> */}
 
                 <Column field="itemDescription" title="Producto"  />
                 <Column field="BasePrice" title="Precio Base" format="{0:n2}" />
                 <Column field="SalePrice" title="Precio con Iva"  format="{0:n2}" />
-                <Column field="DigitalSalePrice" title="Precio Bs Digital"  format="{0:n2}" />
+                {/* <Column field="DigitalSalePrice" title="Precio Bs Digital"  format="{0:n2}" /> */}
+                <Column field="DigitalSalePrice" title="Precio Bs Soberanos"  format="{0:n2}" />
                 <Column field="BasePriceUsd" title="Dolares Base" format="{0:n8}" />
                 <Column field="SalesPriceUsd" title="Dolares con Iva" format="{0:n2}" />
 
@@ -105,7 +106,7 @@ class App extends React.Component {
                         {(this.state.gridData && this.state.gridData.length != 0) ? 
                         Common.convertDate(this.state.gridData[0].DatLastExchange) : "*//*" 
                         }
-                        &nbsp;Valor: 
+                        ---&nbsp;Valor:&nbsp;
                         {(this.state.gridData && this.state.gridData.length != 0) ? 
                         this.state.gridData[0].Rate : -1
                         }

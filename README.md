@@ -6,6 +6,8 @@
 
 Arturos prices with small React Framework and Kendo-UI.
 
+http://intranet.arturos.com.ve/SiteAssets/Forms/AllItems.aspx?RootFolder=%2FSiteAssets%2Fpriceswithusd&FolderCTID=0x012000EDB89B81B88908458BE40C0CB0FD062F&View={CABB4144-7635-4AAD-9235-0D24AA5231E7}&InitialTabId=Ribbon%2EDocument&VisibilityContext=WSSTabPersistence
+
 ## Install - Execute 📋
 
 ```bash
@@ -18,14 +20,14 @@ $ npx gulp generate-wp-content
 
 ```
 
-Before of build, go to: public/src/js and deploy files.
+Before of build and gulp, go to: build\static\js and deploy files in Sharepoint.
 -2.chunk.js
 -2.chunk.js.map
 -main.chunk.js
 -main.chunk.js.map
 -wp-content.txt
 
-And change extension in the bottom code file for the new name.
+And change extension in the bottom code file for the new name in the file wp-content.
 
 ## Authors ✒️
 
