@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="" target="blank"><img src="https://pbs.twimg.com/media/EDgANEPWwAU1nxT.jpg" width="320" alt="Arturos Logo" /></a>
+  <a href="" target="blank"><img src="https://pbs.twimg.com/media/EDgANEPWwAU1nxT.jpg" width="150" alt="Arturos Logo" /></a>
 </p>
 
 # Precios oficiales con Moneda. Arturos. 
