@@ -106,7 +106,7 @@ class App extends React.Component {
                 // }}
             >
 
-                <GridToolbar>
+                {/* <GridToolbar>
                     <button
                         title="Descargar a PDF"
                         className="k-button k-primary"
@@ -115,8 +115,9 @@ class App extends React.Component {
                     >
                         Descargar a PDF
                     </button>
-                </GridToolbar>
+                </GridToolbar> */}
 
+                <Column field="itemCode" title="Code" />
                 <Column field="itemDescription" title="Producto" />
                 <Column field="BasePrice" title="Precio Base" format="{0:n2}" />
                 <Column field="SalePrice" title="Precio con Iva"  format="{0:n2}" />
