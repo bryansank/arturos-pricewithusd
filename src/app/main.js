@@ -3,16 +3,36 @@ import React from 'react';
 import { Col,Row,Container } from 'react-bootstrap';
 import { Grid, GridColumn as Column, GridToolbar } from '@progress/kendo-react-grid';
 import { GridPDFExport } from '@progress/kendo-react-pdf';
+
+import { orderBy } from "@progress/kendo-data-query";
 //
 import Common from './common';
+
+// React hooks no, esto es clases
+// const initialSort = [
+// {
+//     field: "itemDescription",
+//     dir: "asc",
+// },
+// ];
+
+// const [sort, setSort] = React.useState(initialSort);
 
 class App extends React.Component {
     gridPDFExport;
 
+    
+
     state = {
         gridData: [],
         exporting: false,
-        pdfReportArray : ""
+        pdfReportArray : "",
+        sort: [
+            {
+                field: "itemDescription",
+                dir: "asc",
+            },
+        ],
     }
  
     componentDidMount(){
@@ -65,9 +85,28 @@ class App extends React.Component {
         if (!Common.IsDesignMode()){
 
         const grid = (
-            <Grid data={this.state.gridData}>
+            
+            // grid old 
+            // <Grid data={this.state.gridData}>
+            <Grid 
+                data={orderBy(this.state.gridData, this.state.sort)}
+                sortable={true}
+                sort={this.state.sort}
+                onSortChange={(e) => {
+                this.setState({
+                    sort: e.sort,
+                });
+                }}
+                // grid for hooks
+                // data={orderBy(this.state.gridData, sort)} 
+                // sortable={true}
+                // sort={sort}
+                // onSortChange={(e) => {
+                //     setSort(e.sort);
+                // }}
+            >
 
-                {/* <GridToolbar>
+                <GridToolbar>
                     <button
                         title="Descargar a PDF"
                         className="k-button k-primary"
@@ -76,13 +115,12 @@ class App extends React.Component {
                     >
                         Descargar a PDF
                     </button>
-                </GridToolbar> */}
+                </GridToolbar>
 
-                <Column field="itemDescription" title="Producto"  />
+                <Column field="itemDescription" title="Producto" />
                 <Column field="BasePrice" title="Precio Base" format="{0:n2}" />
                 <Column field="SalePrice" title="Precio con Iva"  format="{0:n2}" />
                 {/* <Column field="DigitalSalePrice" title="Precio Bs Digital"  format="{0:n2}" /> */}
-                <Column field="DigitalSalePrice" title="Precio Bs Soberanos"  format="{0:n2}" />
                 <Column field="BasePriceUsd" title="Dolares Base" format="{0:n8}" />
                 <Column field="SalesPriceUsd" title="Dolares con Iva" format="{0:n2}" />
 
@@ -106,7 +144,7 @@ class App extends React.Component {
                         {(this.state.gridData && this.state.gridData.length != 0) ? 
                         Common.convertDate(this.state.gridData[0].DatLastExchange) : "*//*" 
                         }
-                        ---&nbsp;Valor:&nbsp;
+                        &nbsp;Valor:&nbsp;
                         {(this.state.gridData && this.state.gridData.length != 0) ? 
                         this.state.gridData[0].Rate : -1
                         }
