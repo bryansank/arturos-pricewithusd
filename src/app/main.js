@@ -4,7 +4,7 @@ import { Col,Row,Container } from 'react-bootstrap';
 import { Grid, GridColumn as Column, GridToolbar } from '@progress/kendo-react-grid';
 import { GridPDFExport } from '@progress/kendo-react-pdf';
 
-import { orderBy } from "@progress/kendo-data-query";
+// import { orderBy } from "@progress/kendo-data-query";
 //
 import Common from './common';
 
@@ -27,12 +27,12 @@ class App extends React.Component {
         gridData: [],
         exporting: false,
         pdfReportArray : "",
-        sort: [
-            {
-                field: "itemDescription",
-                dir: "asc",
-            },
-        ],
+        // sort: [
+        //     {
+        //         field: "itemDescription",
+        //         dir: "asc",
+        //     },
+        // ],
     }
  
     componentDidMount(){
@@ -87,24 +87,8 @@ class App extends React.Component {
         const grid = (
             
             // grid old 
-            // <Grid data={this.state.gridData}>
-            <Grid 
-                data={orderBy(this.state.gridData, this.state.sort)}
-                sortable={true}
-                sort={this.state.sort}
-                onSortChange={(e) => {
-                this.setState({
-                    sort: e.sort,
-                });
-                }}
-                // grid for hooks
-                // data={orderBy(this.state.gridData, sort)} 
-                // sortable={true}
-                // sort={sort}
-                // onSortChange={(e) => {
-                //     setSort(e.sort);
-                // }}
-            >
+            <Grid data={this.state.gridData}>
+            
 
                 {/* <GridToolbar>
                     <button
@@ -117,7 +101,7 @@ class App extends React.Component {
                     </button>
                 </GridToolbar> */}
 
-                <Column field="itemCode" title="Code" />
+                {/* <Column field="itemCode" title="Code" /> */}
                 <Column field="itemDescription" title="Producto" />
                 <Column field="BasePrice" title="Precio Base" format="{0:n2}" />
                 <Column field="SalePrice" title="Precio con Iva"  format="{0:n2}" />
